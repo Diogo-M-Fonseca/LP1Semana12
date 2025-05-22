@@ -7,7 +7,7 @@ namespace HowManyOfThisType
 {
     public static class Checker
     {
-        public static int HowManyOfThisType<T>(IEnumerable<object> items)
+        public static int HowManyOfType<T>(IEnumerable<object> items)
         {
             int num = 0;
 
