@@ -1,6 +1,7 @@
 using System;
+using System.Collections.Generic;
 
-namespace MyGenericClass
+namespace MyEnumerable
 {
 
     public class Guarda3<T>
@@ -14,16 +15,23 @@ namespace MyGenericClass
             Guarda32 = default;
             Guarda33 = default;
         }
+        
+        public IEnumerator<T> GetEnumerator()
+        {
+            yield return Guarda31;
+            yield return Guarda32;
+            yield return Guarda33;
+        }
         public T GetItem(int i)
         {
             switch (i)
             {
                 case 0: return Guarda31;
-                case 1: return Guarda32;    
+                case 1: return Guarda32;
                 case 2: return Guarda33;
                 default: throw new IndexOutOfRangeException();
             }
-            
+
         }
         public void SetItem(int i, T item)
         {
