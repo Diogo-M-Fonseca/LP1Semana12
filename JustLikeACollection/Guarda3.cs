@@ -1,10 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace JustLikeACollection
 {
 
-    public class Guarda3<T>
+    public class Guarda3<T> : IEnumerable<T>, IEnumerable
     {
         private T Guarda31;
         private T Guarda32;
@@ -15,7 +16,23 @@ namespace JustLikeACollection
             Guarda32 = default;
             Guarda33 = default;
         }
-        
+
+        public void Add(T item)
+        {
+            if (Guarda31 == null || Guarda31.Equals(default(T)))
+            {
+                Guarda31 = item;
+            }
+            else if (Guarda32 == null || Guarda32.Equals(default(T)))
+            {
+                Guarda32 = item;
+            }
+            else if (Guarda33 == null || Guarda33.Equals(default(T)))
+            {
+                Guarda33 = item;
+            }
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             yield return Guarda31;
@@ -49,6 +66,10 @@ namespace JustLikeACollection
                 default:
                     throw new IndexOutOfRangeException();
             }
+        }
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

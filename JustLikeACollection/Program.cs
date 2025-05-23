@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 
 namespace JustLikeACollection
 {
@@ -6,13 +6,19 @@ namespace JustLikeACollection
     {
         private static void Main()
         {
-            Guarda3<string> g3s = new Guarda3<string>();
-            Guarda3<float> g3f = new Guarda3<float>();
+            Guarda3<string> g3s = new Guarda3<string>()
+            {
+                "Olá",
+                "lalala",
+                "Adeus"
+            };
 
-            g3s.SetItem(0, "Olá");
-            g3s.SetItem(2, "Adeus");
-
-            g3f.SetItem(2, 54.6f);
+            Guarda3<float> g3f = new Guarda3<float>()
+            {
+                2f,
+                54.6f,
+                1f
+            };
 
             Console.WriteLine("Strings:");
             foreach (string s in g3s)
@@ -25,18 +31,18 @@ namespace JustLikeACollection
             {
                 Console.WriteLine($"    {f}");
             }
+            Console.WriteLine("Thank you for using this program!");
 
             // Expected output:
 
             // Strings:
             //     Olá
-            //
+            //     lalala
             //     Adeus
             // Floats:
-            //     0
-            //     0
+            //     2
             //     54.6
-
+            //     1
         }
     }
 }
